@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
+import PageNotFound from "./Components/PageNotFound";
 
-function App() {
+import AddPost from "./Components/Posts/Post/AddPost";
+import EditPost from "./Components/Posts/Post/EditPost";
+import SinglePostDetails from "./Components/Posts/Post/SinglePostDetails";
+import Posts from "./Components/Posts/Posts";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path='/' render={() => <Posts />} />
+      <Route exact path='/posts' render={() => <Redirect to='/' />} />
+      <Route path='/posts/add' render={() => <AddPost />} />
+      <Route path='/posts/edit/:id' render={() => <EditPost />} />
+      <Route path='/posts/:id' render={() => <SinglePostDetails />} />
+      <Route path='/*' component={PageNotFound} />
+    </Switch>
   );
 }
-
-export default App;
