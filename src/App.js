@@ -14,11 +14,17 @@ export default function App() {
       <Navbar />
       <div style={{ marginTop: "65px", padding: "10px" }}>
         <Switch>
-          <Route exact path='/' render={(props) => <Posts />} />
+          <Route exact path='/' render={(props) => <Posts {...props} />} />
           <Route exact path='/posts' render={(props) => <Redirect to='/' />} />
-          <Route path='/posts/add' render={(props) => <AddPost />} />
-          <Route path='/posts/edit/:id' render={(props) => <EditPost />} />
-          <Route path='/posts/:id' render={(props) => <SinglePostDetails />} />
+          <Route path='/posts/add' render={(props) => <AddPost {...props} />} />
+          <Route
+            path='/posts/edit/:id'
+            render={(props) => <EditPost {...props} />}
+          />
+          <Route
+            path='/posts/:id'
+            render={(props) => <SinglePostDetails {...props} />}
+          />
           <Route path='/*' component={PageNotFound} />
         </Switch>
       </div>
