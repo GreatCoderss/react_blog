@@ -13,4 +13,7 @@ export const UpdatePost = ({ id, data }) =>
   https.put(`${baseUrl}/posts/${id}`, data);
 
 //deleting  single posts
-export const DeletePost = ({ id }) => https.put(`${baseUrl}/posts/${id}`);
+export const DeletePost = ({ id }) => https.delete(`${baseUrl}/posts/${id}`);
+
+//adding data
+export const AddPosts = ({ data }) => https.post(`${baseUrl}/posts`, data);
