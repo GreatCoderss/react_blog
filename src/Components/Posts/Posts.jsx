@@ -3,7 +3,7 @@ import { Box, CircularProgress, Container, Grid } from "@material-ui/core";
 import SinglePost from "./Post/SinglePost";
 import { GetAllPosts } from "../../HttpServices/Posts";
 
-export default function Posts() {
+export default function Posts({ searchPostData }) {
   const [postData, setPostData] = useState([]);
 
   const GetAllPostsByREquest = () =>
@@ -15,8 +15,10 @@ export default function Posts() {
       .catch((e) => console.log("error", e.message));
 
   useEffect(() => {
-    GetAllPostsByREquest();
-  }, []);
+    searchPostData.length === 0
+      ? GetAllPostsByREquest()
+      : setPostData(searchPostData);
+  }, [searchPostData, searchPostData.length]);
 
   return (
     <Container>

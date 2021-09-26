@@ -51,4 +51,12 @@ export const NavbarStyle = makeStyles((theme) => ({
     padding: theme.spacing(1),
     paddingLeft: theme.spacing(5),
   },
+
+  infoMsg: {
+    width: "100%",
+    position: "absolute",
+    bottom: "-20px",
+    left: "0px",
+    backgroundColor: "#00bcd4",
+  },
 }));

@@ -77,3 +77,14 @@ module.exports.AppPost = async (req, res) => {
   }
   res.status(200).send({ data: post, message: "Data Added Successfully" });
 };
+
+module.exports.SearchBlogPost = async (req, res) => {
+  const searchText = String(req.body.search).trim();
+
+  //main part
+  const posts = await PostSchema.find({
+    $text: { $search: `${searchText}` },
+  });
+
+  res.status(200).json({ posts });
+};

@@ -17,3 +17,7 @@ export const AddPosts = ({ data }) => http.post(`${baseUrl}/posts`, data);
 //Edit post data
 export const EditPostData = ({ id, data }) =>
   http.put(`${baseUrl}/posts/${id}`, data);
+
+//Search post data
+export const SearchPostData = ({ data }) =>
+  http.post(`${baseUrl}/posts/search`, { search: data });
