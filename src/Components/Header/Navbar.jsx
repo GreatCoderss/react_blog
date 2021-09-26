@@ -9,13 +9,12 @@ import image from "../../images/logo192.png";
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
-import { PostAdd } from "@material-ui/icons";
 
 export default function Navbar() {
   const classes = NavbarStyle();
 
-  const handleOnChangeInput = (e) => {
-    console.log("value ", e.target.value);
+  const handleSearchOnChange = (e) => {
+    console.log("value", e.target.value);
   };
 
   return (
@@ -31,19 +30,19 @@ export default function Navbar() {
             </Hidden>
           </Box>
         </Link>
-        <div className={classes.flexGrow} />
+        <div className={classes.grow} />
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
           </div>
           <InputBase
-            placeholder='Search ...'
-            inputProps={{ "aria-details": "Search" }}
+            placeholder='search ...'
+            inputProps={{ "aria-details": "search" }}
             classes={{
               root: classes.inputRoot,
               input: classes.inputInput,
             }}
-            onChange={handleOnChangeInput}
+            onChange={handleSearchOnChange}
           />
         </div>
         <Hidden xsDown>
